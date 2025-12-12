@@ -1,0 +1,39 @@
+sky:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: sky_take_out
+    username: #your mysql username(eg:root)
+    password: #your mysql password
+  redis:
+    host: localhost
+    port: 6379
+    password: #your redis password
+    database: 1
+
+
+  alioss:
+    endpoint: #the nearby endpoint
+    access-key-id: #
+    access-key-secret: #
+    bucket-name: #
+
+  wechat:
+    appid: #
+    secret: #
+    mchid:  #
+    mchSerialNo: #
+    privateKeyFilePath:   # eg: D:\apiclient_key.pem
+    apiV3Key: #
+    weChatPayCertFilePath: #eg: D:\wechatpay_1D845079895AC7CE966FE6698543C9F68ACFC.pem
+    notifyUrl:  https://www.weixin.qq.com/wxpay/pay.php
+    refundNotifyUrl:  https://www.weixin.qq.com/wxpay/pay.php
+  baidu:
+    ak: #
+  shop:
+    address: #your shop address, eg: 北京市西城区前门西大街正阳市场2号
+
+
+
+

@@ -1,0 +1,8 @@
+**/target/
+.idea
+*.iml
+*.class
+*Test.java
+**/test/
+**/application-dev.yml
+.git_withProcess/

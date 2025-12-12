@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.sky.mapper.UserMapper">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into user(openid, name, phone, sex, id_number, avatar, create_time)
+        VALUES(#{openid},#{name},#{phone},#{sex},#{idNumber},#{avatar},#{createTime})
+    </insert>
+
+    <select id="getUserByMap" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(id) from user
+        <where>
+            <if test="beginTime != null">
+                and create_time &gt;= #{beginTime}
+            </if>
+            <if test="endTime != null">
+                and create_time &lt;= #{endTime}
+            </if>
+        </where>
+    </select>
+
+</mapper>
