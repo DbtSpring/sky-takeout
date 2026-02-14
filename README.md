@@ -1,6 +1,6 @@
 **中文版介绍：**[跳转](#在线外卖订购系统)
 
-**English intro:** [GOTO](#Online Food Ordering System)
+**English intro:** [GOTO](#Online-Food-Ordering-System)
 
 # 在线外卖订购系统
 
