@@ -1,6 +1,10 @@
-# 星瀚外卖 - 在线外卖订购系统
+**中文版介绍：**[跳转](#在线外卖订购系统)
 
-本项目是使用 Spring Boot + vue 框架开发的一个在线外卖订购系统，是一个在黑马程序员的“苍穹外卖”基础上复现和改进的项目。包含管理端web、用户端小程序、后端。本仓库为后端部分。
+**English intro:** [GOTO](#Online Food Ordering System)
+
+# 在线外卖订购系统
+
+本项目是使用 Spring Boot + vue 框架开发的一个在线外卖订购系统，是一个在黑马程序员的“苍穹外卖”基础上复现和改进的项目。这个仓库是后端部分。
 
 push到这里，方便记录学习训练的过程，交流问题
 
@@ -9,6 +13,7 @@ push到这里，方便记录学习训练的过程，交流问题
 后端框架
 
 - SpringBoot (2.7.3)
+
 - mybatis
 
 数据库
@@ -73,4 +78,78 @@ push到这里，方便记录学习训练的过程，交流问题
 学习过程中累计10次commit，为了防止commit过程中敏感信息泄露，并精简仓库文件，仅push了最后成果版本。
 
 具体十次commit日志详见 `commit_logs.md`
+
+
+
+
+
+# Online Food Ordering System
+
+This project is an online food ordering system developed with the Spring Boot + Vue framework. This repository contains the backend component.
+
+## 🛠️ Tech Stack:
+
+Backend Frameworks
+
+- SpringBoot (2.7.3)
+- MyBatis（ORM）
+
+Databases
+
+- MySQL
+- Redis
+
+Frontend Frameworks
+
+- Vue
+- Uniapp(a Vue framework for wechat mini app)
+- ElementUI(an Vue UI framework)
+
+Frontend-Backend Communication
+
+- RESTful API
+
+## 🚀 Windows Development Environment Setup
+
+1. Prerequisites: Install JDK 17 and configure environment variables; install IntelliJ IDEA and set up plugins like Lombok; install MySQL, Redis, Maven, etc.
+2. Run `mysql.sql` to create the database and tables.
+3. Clone the project locally: `git clone https://github.com/DbtSpring/sky-takeout-system.git`
+4. Remove the ".template" suffix from `application-dev.yml.template`, then modify the sections marked with "#" in the configuration file to fill in your own configurations.
+5. Run the backend project and launch the frontend project in conjunction.
+
+## 📋 Overall Project Logic
+
+Covers dual-end business for takeout [Admin Portal + User Portal], implementing a closed-loop process from dish management to order completion:
+
+1. **Admin Portal**: Employee/Category/Dish/Set Meal Management → Order Processing → Data Statistics & Report Export. Supports merchant operations;
+2. **User Portal (WeChat Mini Program)**: WeChat authorized login → Product browsing (dishes/set meals) → Shopping cart operations → Address management → Order placement & payment → Order inquiry/cancellation. Meets users' food ordering needs;
+3. **Core Workflow (Order Processing)**: Merchants list dishes/set meals → Users place and pay for orders → The system pushes orders to merchants in real time → Merchants accept/fulfill orders → Order completion (automatic cancellation on timeout).
+
+## ✨ Core Technical Highlights
+
+In addition to standard multi-table CRUD operations, the project includes:
+
+1. **Tech Stack Selection**: Backend architecture built with Spring Boot + Spring MVC + MyBatis, MySQL for business data storage, and Redis for cache performance optimization, covering mainstream full-stack development technologies;
+
+2. **Efficiency & Reusability Optimization:** AOP + Reflection to automatically populate common fields (e.g., createTime/updateTime), reducing redundant code;
+
+   Custom Redis caching + Spring Cache annotation-based caching to reduce database query pressure;
+
+3. **Security & Authentication:** WeChat Mini Program login verifies code to obtain openId, enabling registration-free login;
+
+   JWT token generation + Interceptor-based authentication, with ThreadLocal for user context storage to ensure API security;
+
+4. **Real-Time Communication & Scheduled Tasks**: WebSocket for new order notifications and customer order reminders to improve merchant response efficiency; Spring Task for scheduled processing of timed-out orders with automatic status updates, eliminating manual intervention;
+
+5. **Data Visualization & File Processing:** Integration with ECharts for multi-dimensional data statistics (e.g., turnover, top 10 sales items);
+
+   Apache POI for exporting operational Excel reports based on templates, adapting to office scenarios;
+
+6. **Robust Service Layer Design**: Associated data linkage (e.g., dish deactivation syncs to set meal deactivation), rational table relationship design (many-to-many between set meals and dishes), ensuring closed-loop business processes and data consistency.
+
+## 📝 Project Development Notes
+
+A total of 10 commits were made during the learning process. To prevent sensitive information leakage during commits and streamline repository files, only the final polished version has been pushed.
+
+Details of the 10 commit logs can be found in `commit_logs.md`.
 
